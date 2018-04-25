@@ -1,12 +1,32 @@
 import React from 'react';
 import './css/GuessNumber.css'
 
-let fun = <div className='guess-number'><h1>Guess number under construction</h1></div>
+
 
 class GuessNumber extends React.Component {
+  constructor(props){
+    super(props);
+
+   // Tillståndet när applikationen startar
+   // ska vara ON
+   this.state = {
+     trueNumber: false
+   };
+
+   this.fun = this.fun.bind(this);
+  }
+  fun(event){
+    console.log('I work');
+    this.setState({trueNumber:!this.state.trueNumber});
+    console.log(this.state.trueNumber);
+  }
+
   render() {
     return (
-      fun
+      <div className='guess-number'>
+        <input placeholder='1 - 100' type='text'/>
+        <button onClick={this.fun}>Testa nummer</button>
+      </div>
     );
   }
 }
