@@ -1,0 +1,17 @@
+.tab-button-container{
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+}
+.tab-button-container>button{
+  width: 20%;
+  background-color: #fff;
+  border: 1px solid powderblue;
+  height: 2rem;
+}
+
+.current-tab-container{
+  width: 100%;
+  height:auto;
+  min-height: 40vh;
+}
