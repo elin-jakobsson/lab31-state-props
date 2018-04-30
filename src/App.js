@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import Login from './Login.js'
-import LockedText from './LockedText'
-import BackwardsText from './BackwardsText'
 import Tabs from './Tabs'
 import './App.css';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/LockedText.css';
 
 class LockedText extends React.Component {
   constructor(props){
@@ -26,7 +27,7 @@ class LockedText extends React.Component {
         <input type = "checkbox" id = "textCheck" onClick = {this.checkFunction}/>
         <label htmlFor = "textCheck">Enable textarea</label>
       </div>
-      <textarea placeholder = "Only writable when checked!" disabled = {disabled} ></textarea>
+      <textarea className = "lockedTextfield" placeholder = "Only writable when checked!" disabled = {disabled} ></textarea>
       </div>
     );
   }
