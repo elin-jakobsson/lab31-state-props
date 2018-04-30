@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './css/GuessNumber.css';
 
 class GuessNumber extends React.Component {
@@ -10,7 +10,7 @@ class GuessNumber extends React.Component {
    this.state = {
      value:'',
      trueNumber: false,
-     theCorrectNumber: this.props.guess,
+     theCorrectNumber: props.guess,
      amountOfTries:0,
      infoMessage: ''
    };
@@ -19,20 +19,26 @@ class GuessNumber extends React.Component {
    this.handleChange = this.handleChange.bind(this);
    this.validateChange = this.validateChange.bind(this);
   }
+  retryNum(){
+    let newNum = Math.round( (Math.random()*100)+1);
+    console.log(newNum);
+    this.setState({theCorrectNumber:newNum})
+    console.log(this.theCorrectNumber);
+  }
   handleSubmit(event){
     console.log('rätt nummer ', this.state.theCorrectNumber);
     if (Number(this.state.value) === this.state.theCorrectNumber) {
       this.setState({trueNumber:!this.state.trueNumber});
-      this.setState({infoMessage:this.state.infoMessage = 'RÄTT, det hemliga numret var ' + this.state.theCorrectNumber})
+      this.setState({infoMessage: 'RÄTT, det hemliga numret var ' + this.state.theCorrectNumber})
       this.setState({value:''})
       //console.log('tries ', this.state.amountOfTries);
     }else if (Number(this.state.value)>this.state.theCorrectNumber) {
-      this.setState({infoMessage:this.state.infoMessage = 'För högt, testa igen'})
+      this.setState({infoMessage:'För högt, testa igen'})
     //  console.log('för högt');
       this.setState({amountOfTries: this.state.amountOfTries + 1})
       this.setState({value:''})
     }else {
-        this.setState({infoMessage:this.state.infoMessage = 'För lågt, testa igen'})
+        this.setState({infoMessage:'För lågt, testa igen'})
         this.setState({amountOfTries: this.state.amountOfTries + 1})
         this.setState({value:''})
     }
@@ -46,7 +52,7 @@ class GuessNumber extends React.Component {
     event = (event) ? event : window.event;
     let numberLength =  this.state.value.length + 1;
     let charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 47 && charCode < 58 && numberLength <= 3 || charCode===13) {
+    if (charCode > 47 && charCode < 58 && (numberLength <= 3 || charCode===13)) {
       console.log(charCode);
     }else {
       event.preventDefault();
@@ -60,6 +66,7 @@ class GuessNumber extends React.Component {
         <input placeholder='1 - 100' type='text' value={this.state.value} onKeyPress={this.validateChange} onChange={this.handleChange}/>
         <input type="submit" value="Submit" />
         </form>
+        <button onClick={event=> this.retryNum()}>Testa igen</button>
         <p>{this.state.infoMessage}</p>
         <p>Antal försök: {this.state.amountOfTries}</p>
       </div>
