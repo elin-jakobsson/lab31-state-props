@@ -4,7 +4,7 @@ class Login extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: this.props.logInStatus,
     };
     this.loginFunction = this.loginFunction.bind(this);
   }

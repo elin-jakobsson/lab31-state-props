@@ -12,12 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Hello World
         <Tabs/>
-
-        <Login/>
-        <LockedText/>
-        <BackwardsText/>
       </div>
     );
   }
