@@ -5,7 +5,6 @@ class LockedText extends React.Component {
     super(props);
     this.state = {
       checked: false,
-      disabled: true,
     }
 
     this.checkFunction = this.checkFunction.bind(this);
@@ -14,11 +13,12 @@ class LockedText extends React.Component {
     this.setState({checked: !this.state.checked});
   }
   render() {
+    let disabled;
     if (this.state.checked === true){
-      this.state.disabled = false;
+      disabled = false;
     }
     else if (this.state.checked === false){
-      this.state.disabled = true;
+      disabled = true;
     }
     return (
       <div className = "lockedTextContainer">
@@ -26,7 +26,7 @@ class LockedText extends React.Component {
         <input type = "checkbox" id = "textCheck" onClick = {this.checkFunction}/>
         <label htmlFor = "textCheck">Enable textarea</label>
       </div>
-      <textarea placeholder = "Only writable when checked!" disabled = {this.state.disabled} ></textarea>
+      <textarea placeholder = "Only writable when checked!" disabled = {disabled} ></textarea>
       </div>
     );
   }
