@@ -4,7 +4,7 @@ class BackwardsText extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      displacement: 1,
+      displacement: this.props.displacementPropped,
     }
     this.inputAlter = this.inputAlter.bind(this);
     this.textValue = this.textValue.bind(this);

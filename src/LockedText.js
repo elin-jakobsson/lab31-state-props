@@ -4,7 +4,7 @@ class LockedText extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      checked: false,
+      checked: this.props.isChecked,
     }
 
     this.checkFunction = this.checkFunction.bind(this);
