@@ -5,7 +5,6 @@ class Login extends React.Component {
     super(props);
     this.state = {
       loggedIn: false,
-      btnText: "Null",
     };
     this.loginFunction = this.loginFunction.bind(this);
   }
@@ -13,15 +12,16 @@ class Login extends React.Component {
     this.setState({loggedIn: !this.state.loggedIn})
   }
   render() {
+    let btnText;
     if (this.state.loggedIn === false ){
-      this.state.btnText = "Log in";
+      btnText = "Log in";
     }
     else if (this.state.loggedIn === true){
-      this.state.btnText = "Log out";
+      btnText = "Log out";
     }
     return (
       <div className = "loginContainer">
-        <button className = "loginBtn" onClick={this.loginFunction}> {this.state.btnText} </button>
+        <button className = "loginBtn" onClick={this.loginFunction}> {btnText} </button>
       </div>
     );
   }
