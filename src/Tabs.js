@@ -32,13 +32,13 @@ class Tabs extends React.Component {
         </div>);
         break;
       case 'login':
-        currentTab = <Login/>
+        currentTab = <Login logInStatus = {false}/>
           break;
       case 'lockt':
-          currentTab = <LockedText/>
+          currentTab = <LockedText isChecked = {false}/>
         break;
       case 'backText':
-           currentTab = <BackwardsText/>
+           currentTab = <BackwardsText displacementPropped = {0}/>
         break;
         case 'guessNum':
             currentTab = <GuessNumber guess={randomNumberGenerator}/>

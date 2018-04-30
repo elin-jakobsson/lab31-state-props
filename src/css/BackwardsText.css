@@ -1,0 +1,17 @@
+.backwardsContainer {
+  background-color: #3987c9;
+  height: 150px;
+}
+.disTextfield {
+  position: relative;
+  top: 150px;
+  height: 20px;
+  width: 300px;
+}
+.disInput {
+  width: 30px;
+  position: absolute;
+  top: 190px;
+  opacity: 0.8;
+  text-align: center;
+}

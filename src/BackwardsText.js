@@ -1,10 +1,11 @@
 import React from 'react';
+import './css/BackwardsText.css';
 
 class BackwardsText extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      displacement: 1,
+      displacement: this.props.displacementPropped,
     }
     this.inputAlter = this.inputAlter.bind(this);
     this.textValue = this.textValue.bind(this);
@@ -38,8 +39,8 @@ class BackwardsText extends React.Component {
   render() {
     return (
       <div className = "backwardsContainer">
-      <input type = "number" value = {this.state.displacement} onChange={this.inputAlter}/>
-      <textarea placeholder = "Displaced letters" onKeyDown={this.textValue}/>
+      <input className = "disInput" type = "number" value = {this.state.displacement} onChange={this.inputAlter}/>
+      <textarea className = "disTextfield" placeholder = "Displaced letters" onKeyDown={this.textValue}/>
       </div>
     );
   }
