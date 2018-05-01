@@ -39,8 +39,10 @@ class BackwardsText extends React.Component {
   render() {
     return (
       <div className = "backwardsContainer">
+      <form>
       <input className = "disInput" type = "number" value = {this.state.displacement} onChange={this.inputAlter}/>
       <textarea className = "disTextfield" placeholder = "Displaced letters" onKeyDown={this.textValue}/>
+      </form>
       </div>
     );
   }

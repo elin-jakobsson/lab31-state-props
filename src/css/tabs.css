@@ -1,17 +1,68 @@
-.tab-button-container{
-  margin-top: 2rem;
+
+/* all-tabs-container innehåller alla tab-button-container och alla current-tab-container */
+/* två direkta barn  */
+.all-tabs-container{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  min-width: 320px;
+  align-items: center;
+  align-content: center;
+}
+
+.tab-button-container {
+  margin-top: 3rem;
   width: 100%;
   display: flex;
 }
-.tab-button-container>button{
+
+.current-tab-container,
+.current-tab-container-lockt,
+.current-tab-container-login,
+.current-tab-container-backText,
+.current-tab-container-guessNum {
+  width: 100%;
+  height: auto;
+  min-height: 40vh;
+
+  background-color: powderblue;
+}
+
+/*.current-tab-container-guessNum {
+  background-color: powderblue
+}*/
+
+.start-greating {
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.start-greating>h1 {
+  margin: 3rem 0 1.5rem 0;
+}
+.start-greating>p.createdBy {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+
+}
+
+.btn-neutral{
+  font-weight: bold;
+  color: #005f66;
   width: 20%;
   background-color: #fff;
   border: 1px solid powderblue;
   height: 2rem;
 }
 
-.current-tab-container{
-  width: 100%;
-  height:auto;
-  min-height: 40vh;
+.btn-active{
+  font-weight: bold;
+  /* color: #fff; */
+  width: 20%;
+  background-color: powderblue;
+  border: 1px solid powderblue;
+  height: 2rem;
 }

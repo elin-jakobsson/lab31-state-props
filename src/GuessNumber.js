@@ -12,7 +12,8 @@ class GuessNumber extends React.Component {
      trueNumber: false,
      theCorrectNumber: props.guess,
      amountOfTries:0,
-     infoMessage: ''
+     infoMessage: '',
+     retryFalse: false
    };
    //this.handleSubmit = this.handleSubmit.bind(this);
    // this.handleChange = this.handleChange.bind(this);
@@ -20,23 +21,30 @@ class GuessNumber extends React.Component {
   }
   retryNum(){
     let newNum = Math.round( (Math.random()*100)+1);
-    console.log('the new number', newNum);
+  //  console.log('the new number', newNum);
 
     this.setState({
       theCorrectNumber:newNum,
       infoMessage: '',
       amountOfTries: 0,
-      value: ''
+      value: '',
+      retryFalse:false
     });
-    console.log('the first number ',this.state.theCorrectNumber);
+    //console.log('the first number ',this.state.theCorrectNumber);
   }
   handleSubmit(event){
-    console.log('rätt nummer ', this.state.theCorrectNumber);
-    if (Number(this.state.value) === this.state.theCorrectNumber) {
+    // console.log('length ', this.state.value.length );
+    // console.log('value ', Number(this.state.value));
+    // console.log('rätt nummer ', this.state.theCorrectNumber);
+
+    if(Number(this.state.value) === 0){
+      alert('Du har inte angett något nummer, Skriv in en tal som du tror det hemliga nummret är innan du skickar din gissning!')
+    } else if (Number(this.state.value) === this.state.theCorrectNumber) {
       this.setState({
         trueNumber:!this.state.trueNumber,
         infoMessage: 'RÄTT, det hemliga numret var ' + this.state.theCorrectNumber,
-        value: ''
+        value: '',
+        retryFalse:true
       });
     }else if (Number(this.state.value)>this.state.theCorrectNumber) {
       this.setState({
@@ -44,7 +52,7 @@ class GuessNumber extends React.Component {
         amountOfTries: this.state.amountOfTries + 1,
         value:''
       });
-    }else {
+    }else if (Number(this.state.value)<this.state.theCorrectNumber){
         this.setState({
           infoMessage:'För lågt, testa igen',
           amountOfTries: this.state.amountOfTries + 1,
@@ -68,16 +76,28 @@ class GuessNumber extends React.Component {
     }
   }
   render() {
+    let submitUpdateBtn = <input className='guess-submit' type="submit" value="Submit" />;
+
+    switch (this.state.retryFalse) {
+      case false:
+      submitUpdateBtn = <input className='guess-submit' type="submit" value="Submit" />;
+
+        break;
+      case true:
+        submitUpdateBtn = <button className='retry-btn' onClick={event=> this.retryNum(event)}>Testa igen</button>;
+          break;
+      default:
+
+    }
+
     return (
       <div className='guess-number'>
         <h2>Gör en gissning på ett nummer mellan 1 och 100</h2>
 
         <form onSubmit={event=>this.handleSubmit(event)}>
-        <input placeholder='1 - 100' type='text' value={this.state.value} onKeyPress={event=>this.validateChange(event)} onChange={event=>this.handleChange(event)}/>
-        <input type="submit" value="Submit" />
+        <input className='guess-input' placeholder='1 - 100' type='text' value={this.state.value} onKeyPress={event=>this.validateChange(event)} onChange={event=>this.handleChange(event)}/>
+        {submitUpdateBtn}
         </form>
-
-        <button onClick={event=> this.retryNum(event)}>Testa igen</button>
         <p>{this.state.infoMessage}</p>
         <p>Antal försök: {this.state.amountOfTries}</p>
       </div>
