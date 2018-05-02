@@ -70,7 +70,7 @@ class GuessNumber extends React.Component {
     let numberLength =  this.state.value.length + 1;
     let charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode > 47 && charCode < 58 && numberLength <= 3) || charCode===13) {
-      console.log(charCode);
+    //  console.log(charCode);
     }else {
       event.preventDefault();
     }
