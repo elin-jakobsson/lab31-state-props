@@ -26,11 +26,12 @@ class Tabs extends React.Component {
     let currentTabCss = 'current-tab-container';
     let currentTab;
 
-    let homeBtn: 'btn-active';
-    let locktBtn: 'btn-neutral';
-    let loginBtn: 'btn-neutral';
-    let BackwardsTextBtn: 'btn-neutral';
-    let guessNumBtn: 'btn-neutral';
+    let homeBtn = 'btn-active';
+    let locktBtn= 'btn-neutral';
+    let loginBtn = 'btn-neutral';
+    let BackwardsTextBtn = 'btn-neutral';
+    let guessNumBtn = 'btn-neutral';
+
     switch(this.state.tabPage) {
       case 'hem':
       currentTab =( <div className='start-greating'>
@@ -39,55 +40,34 @@ class Tabs extends React.Component {
           <p className='createdBy'><em>Skapad av Elin Jakobsson och Albin Engman</em></p>
         </div>);
       currentTabCss='current-tab-container';
-
       homeBtn = 'btn-active';
-      locktBtn = 'btn-neutral';
-      loginBtn = 'btn-neutral';
-      BackwardsTextBtn = 'btn-neutral';
-      guessNumBtn = 'btn-neutral';
 
         break;
       case 'login':
         currentTab = <Login logInStatus = {false}/>
         currentTabCss = 'current-tab-container-login';
-
         homeBtn = 'btn-neutral';
-        locktBtn = 'btn-neutral';
         loginBtn = 'btn-active';
-        BackwardsTextBtn = 'btn-neutral';
-        guessNumBtn = 'btn-neutral';
 
           break;
       case 'lockt':
           currentTab = <LockedText isChecked = {false}/>
           currentTabCss = 'current-tab-container-lockt';
-
           homeBtn = 'btn-neutral';
           locktBtn = 'btn-active';
-          loginBtn = 'btn-neutral';
-          BackwardsTextBtn = 'btn-neutral';
-          guessNumBtn = 'btn-neutral';
 
         break;
       case 'backText':
            currentTab = <BackwardsText displacementPropped = {0}/>
             currentTabCss='current-tab-container-backText';
-
             homeBtn = 'btn-neutral';
-            locktBtn = 'btn-neutral';
-            loginBtn = 'btn-neutral';
             BackwardsTextBtn = 'btn-active';
-            guessNumBtn = 'btn-neutral';
 
         break;
         case 'guessNum':
             currentTab = <GuessNumber guess={randomNumberGenerator}/>
             currentTabCss='current-tab-container-guessNum';
-
             homeBtn = 'btn-neutral';
-            locktBtn = 'btn-neutral';
-            loginBtn = 'btn-neutral';
-            BackwardsTextBtn = 'btn-neutral';
             guessNumBtn = 'btn-active';
 
           break;

@@ -14,9 +14,18 @@ class BackwardsText extends React.Component {
     this.setState({displacement: Number(event.target.value)});
   }
   textValue(event){
+    // FRÅN REDOVISNING
+    //if( event.key >= 'A' && event.key <= 'Z' )
+    // const alpha = 'abcdefghijklmnopqrstuvwxyz';
+    // alpha.indexOf('d') + 1 % 26
+    // let x = Math.floor(y / 26)
+    // y -= x*26
+    // y % 26
+
+    const bigA = 64;
     var displacor = event.keyCode + this.state.displacement;
-    if(event.keyCode > 64 && event.keyCode < 91){
-      while (displacor > 90){
+    if(event.keyCode > bigA && event.keyCode < 91){  // 64: 'A', 91: 'Z'
+      while (displacor > 90){  // 90 = ???
         displacor -= 26;
       }
       while (displacor < 65){
