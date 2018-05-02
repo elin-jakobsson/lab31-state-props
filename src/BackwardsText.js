@@ -19,7 +19,7 @@ class BackwardsText extends React.Component {
       while (displacor > 90){
         displacor -= 26;
       }
-      while (displacor < 64){
+      while (displacor < 65){
         displacor += 26;
       }
       event.preventDefault();
